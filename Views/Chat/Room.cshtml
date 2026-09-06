@@ -1,9 +1,7 @@
 ﻿@model int
 
 <style>
-    /* =========================
-               CONTENEDOR PRINCIPAL
-               ========================= */
+
 
     .chat-page {
         max-width: 950px;
@@ -11,9 +9,7 @@
         padding: 0 20px;
     }
 
-    /* =========================
-               HEADER
-               ========================= */
+  
 
     .chat-header {
         display: flex;
@@ -53,9 +49,7 @@
         font-size: 13px;
     }
 
-    /* =========================
-               INPUT AREA
-               ========================= */
+
 
     .message-form {
         background: white;
@@ -100,9 +94,6 @@
             color: #aaa;
         }
 
-    /* =========================
-               BOTÓN ENVIAR
-               ========================= */
 
     .send-button {
         height: 48px;
@@ -127,9 +118,6 @@
             transform: translateY(0);
         }
 
-    /* =========================
-               PANEL DEL CHAT
-               ========================= */
 
     .chat-panel {
         background: white;
@@ -157,9 +145,7 @@
         font-size: 18px;
     }
 
-    /* =========================
-               MENSAJES
-               ========================= */
+
 
     #messages {
         height: 480px;
@@ -191,9 +177,6 @@
         word-wrap: break-word;
     }
 
-    /* =========================
-               ANIMACIÓN
-               ========================= */
 
     @@keyframes messageAppear {
         from {
@@ -207,9 +190,6 @@
         }
     }
 
-    /* =========================
-               SCROLLBAR
-               ========================= */
 
     #messages::-webkit-scrollbar {
         width: 6px;
@@ -224,9 +204,7 @@
         background: transparent;
     }
 
-    /* =========================
-               RESPONSIVE
-               ========================= */
+
 
     @@media (max-width: 768px) {
 
@@ -257,7 +235,7 @@
 
 <div class="chat-page">
 
-    <!-- HEADER -->
+  
 
     <div class="chat-header">
 
@@ -284,7 +262,7 @@
     </div>
 
 
-    <!-- FORMULARIO -->
+  
 
     <div class="message-form">
 
@@ -351,9 +329,7 @@
         .build();
 
 
-    /* =========================
-       CONECTAR A LA SALA
-       ========================= */
+   
 
     connection.start()
         .then(() => {
@@ -364,9 +340,6 @@
         .catch((e) => console.error(e));
 
 
-    /* =========================
-       ENVIAR MENSAJE
-       ========================= */
 
     function sendMessage() {
 
@@ -377,7 +350,7 @@
         let message = document.getElementById("message").value;
 
 
-        // Evitar mensajes vacíos
+     
 
         if (user.trim() === "" || message.trim() === "") {
             return;
@@ -388,20 +361,18 @@
             .catch((err) => console.error(err.toString()));
 
 
-        // Limpiar el mensaje
+  
 
         document.getElementById("message").value = "";
 
-        // Volver al input del mensaje
+     
 
         document.getElementById("message").focus();
 
     }
 
 
-    /* =========================
-       BOTÓN ENVIAR
-       ========================= */
+ 
 
     document.getElementById("btnSend")
         .addEventListener("click", (event) => {
@@ -413,9 +384,7 @@
         });
 
 
-    /* =========================
-       ENTER PARA ENVIAR
-       ========================= */
+ 
 
     document.getElementById("message")
         .addEventListener("keydown", (event) => {
@@ -431,9 +400,7 @@
         });
 
 
-    /* =========================
-       RECIBIR MENSAJES
-       ========================= */
+ 
 
     connection.on("ReceiveMessage", (user, message) => {
 

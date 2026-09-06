@@ -8,7 +8,7 @@ namespace ChatRoom.Controllers
         public static Dictionary<int, string> Rooms =
             new Dictionary<int, string>()
             {
-                { 1,"JEVITOS"}
+                { 1,"SALA DE CHAT 1"}
             };
 
         public static Dictionary<int, string> RoomPins = new()
